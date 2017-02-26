@@ -6,14 +6,18 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     // avoid creating several instances, should be singleon
 //    OkHttpClient client = new OkHttpClient();
+    TextView mFirstTextView;
+    Button mIrresistableClickButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(detailActivityIntent);
                             }
                         }).show();
+            }
+        });
+
+        mFirstTextView = (TextView) findViewById(R.id.Text_view_first);
+        mFirstTextView.setText("my First Text");
+
+        mIrresistableClickButton = (Button) findViewById(R.id.button_irrestable);
+        mIrresistableClickButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFirstTextView.setText("I double dare you");
+                mFirstTextView.setTextSize(28);
             }
         });
     }
